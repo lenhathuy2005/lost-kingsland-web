@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Lost Kingsland Operations Hub — Web, Admin, Bot and payOS ingress." />
+  <title>Lost Kingsland — Operations Hub</title>
+  <link rel="stylesheet" href="/assets/css/lk.css" />
+</head>
+<body class="ops-page">
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="/"><span class="brand-mark"><span>LK</span></span><span>LOST KINGSLAND</span></a>
+    <nav class="nav-links"><a href="/">Home</a><a href="/catalog.html">Codex</a><a href="/portal.html">Portal</a><a href="/ops.html" class="active">Operations</a></nav>
+    <div class="nav-actions"><button id="refreshServices" class="btn ghost">↻ Kiểm tra lại</button></div>
+  </div>
+</header>
+
+<main class="ops-main wrap">
+  <section class="ops-hero">
+    <div>
+      <div class="eyebrow">CONNECTED CONTROL PLANE</div>
+      <h1>Web ↔ Admin ↔ Bot</h1>
+      <p>Web đọc cùng PostgreSQL/shared media với Admin, gửi gameplay action về Game Core/Bot và làm cổng HTTPS ổn định cho payOS callback/webhook.</p>
+    </div>
+    <div class="ops-core-orb"><span>LK</span><small>INTEGRATION HUB</small></div>
+  </section>
+
+  <div id="opsError" class="notice error" hidden></div>
+
+  <section class="service-grid">
+    <article class="service-card glow-blue">
+      <div class="service-icon">W</div><div><div class="service-top"><h2>Public Web</h2><span id="webState" class="service-state">CHECKING</span></div><p>UI công khai + Player Portal + payment ingress.</p><div class="service-meta"><span>Data mode <b id="dbMode">—</b></span><span>Config <b id="gameplayConfig">—</b></span></div></div>
+    </article>
+    <article class="service-card glow-gold">
+      <div class="service-icon">A</div><div><div class="service-top"><h2>Admin</h2><span id="adminState" class="service-state">CHECKING</span></div><p>Quản trị nội dung, ảnh, LiveOps và player operations. Web chia sẻ media/database nhưng không proxy quyền ghi Admin.</p><div class="service-meta"><span>Health HTTP <b id="adminHttp">—</b></span></div><a id="openAdmin" class="btn mini disabled" target="_blank" rel="noopener">Mở Admin ↗</a></div>
+    </article>
+    <article class="service-card glow-violet">
+      <div class="service-icon">B</div><div><div class="service-top"><h2>Bot / Game Core</h2><span id="botState" class="service-state">CHECKING</span></div><p>Gameplay authority, Discord commands, economy ledger và xử lý webhook thanh toán.</p><div class="service-meta"><span>Health HTTP <b id="botHttp">—</b></span></div><a id="openBot" class="btn mini disabled" target="_blank" rel="noopener">Mở Bot / Discord ↗</a></div>
+    </article>
+  </section>
+
+  <section class="ops-section">
+    <div class="section-head compact"><div><div class="eyebrow">PAYOS CALLBACKS</div><h2>3 URL đã sẵn sàng</h2></div><span id="relayState" class="service-state">CHECKING</span></div>
+    <div class="payment-url-grid">
+      <article class="payment-url-card"><span class="url-kicker success">SUCCESS</span><h3>Return URL</h3><p>Trang người chơi quay về sau khi hoàn tất checkout.</p><div class="copy-row"><input id="returnUrl" readonly><button class="btn mini">Sao chép</button></div></article>
+      <article class="payment-url-card"><span class="url-kicker cancel">CANCEL</span><h3>Cancel URL</h3><p>Trang quay về khi người chơi hủy thanh toán.</p><div class="copy-row"><input id="cancelUrl" readonly><button class="btn mini">Sao chép</button></div></article>
+      <article class="payment-url-card featured"><span class="url-kicker webhook">WEBHOOK</span><h3>payOS Webhook</h3><p>Web nhận raw payload và relay nguyên trạng sang Bot để Bot verify checksum + credit economy đúng một lần.</p><div class="copy-row"><input id="webhookUrl" readonly><button class="btn mini">Sao chép</button></div></article>
+    </div>
+    <div class="notice" style="margin-top:16px"><b>Luồng chuẩn:</b> payOS → Web HTTPS → Bot webhook verifier → PostgreSQL payment order + economy ledger. Return/Cancel chỉ phục vụ UX, không được dùng để tự cộng GEMS.</div>
+  </section>
+
+  <section class="ops-section architecture-strip">
+    <div class="arch-node"><small>PLAYER</small><b>Discord / Browser</b></div><span>→</span>
+    <div class="arch-node"><small>PUBLIC EDGE</small><b>Lost Kingsland Web</b></div><span>→</span>
+    <div class="arch-node"><small>AUTHORITY</small><b>Bot / Game Core</b></div><span>→</span>
+    <div class="arch-node"><small>SOURCE OF TRUTH</small><b>PostgreSQL</b></div>
+  </section>
+</main>
+<script src="/assets/js/shell.js"></script>
+<script src="/assets/js/ops.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+LOST KINGSLAND WEB V28 — START HERE
+
+1) Stop the old Web.
+2) Copy the V28 Upgrade files over your existing lost-kingsland-web folder.
+3) Keep your current .env. The upgrade ZIP does NOT contain .env.
+4) Add these optional lines to .env as needed:
+
+ADMIN_BASE_URL=http://127.0.0.1:8787
+ADMIN_PUBLIC_URL=
+BOT_BASE_URL=http://127.0.0.1:8080
+BOT_HEALTH_PATH=/actuator/health
+BOT_SERVICE_TOKEN=
+BOT_PUBLIC_URL=
+PAYOS_WEBHOOK_TARGET_URL=http://127.0.0.1:8080/api/payments/payos/webhook
+WEB_PUBLIC_BASE_URL=
+
+5) Start:
+   .\run.ps1
+
+6) Open:
+   http://127.0.0.1:8788/ops.html
+
+7) The Operations Hub shows the exact 3 payOS URLs:
+   /payment/success
+   /payment/cancel
+   /api/payments/payos/webhook
+
+IMPORTANT:
+- The Web webhook endpoint RELAYS the raw payOS payload to Bot/Game Core.
+- Bot/Game Core must verify payOS and perform idempotent economy credit.
+- Do not put PAYOS_API_KEY / PAYOS_CHECKSUM_KEY in this public Web project.
+- If Bot has no /api/payments/payos/webhook yet, the Web relay will not complete payments until Bot implements it.

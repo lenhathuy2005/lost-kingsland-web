@@ -1,0 +1,41 @@
+server:
+  port: ${WEB_PORT:8790}
+  forward-headers-strategy: framework
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        same-site: lax
+
+spring:
+  application:
+    name: lost-kingsland-web
+  jackson:
+    serialization:
+      indent-output: false
+
+lostkingsland:
+  web:
+    data-mode: ${WEB_DATA_MODE:SNAPSHOT}
+    database-url: ${DATABASE_URL:}
+    database-user: ${DATABASE_USER:}
+    database-password: ${DATABASE_PASSWORD:}
+    gameplay-config: ${WEB_GAMEPLAY_CONFIG:LK-V4.0-P20-RC-002}
+    demo-login-enabled: ${WEB_DEMO_LOGIN:false}
+    game-core-base-url: ${GAME_CORE_BASE_URL:}
+    game-core-service-token: ${GAME_CORE_SERVICE_TOKEN:}
+    discord-client-id: ${DISCORD_CLIENT_ID:}
+    discord-client-secret: ${DISCORD_CLIENT_SECRET:}
+    discord-redirect-uri: ${DISCORD_REDIRECT_URI:http://127.0.0.1:8790/auth/discord/callback}
+
+    # V28 Integration Hub. These values never expose service secrets to the browser.
+    public-base-url: ${WEB_PUBLIC_BASE_URL:}
+    admin-base-url: ${ADMIN_BASE_URL:http://127.0.0.1:8787}
+    admin-public-url: ${ADMIN_PUBLIC_URL:}
+    admin-health-path: ${ADMIN_HEALTH_PATH:/api/health}
+    admin-service-token: ${ADMIN_SERVICE_TOKEN:}
+    bot-base-url: ${BOT_BASE_URL:}
+    bot-public-url: ${BOT_PUBLIC_URL:}
+    bot-health-path: ${BOT_HEALTH_PATH:/actuator/health}
+    bot-service-token: ${BOT_SERVICE_TOKEN:}
+    payos-webhook-target-url: ${PAYOS_WEBHOOK_TARGET_URL:}

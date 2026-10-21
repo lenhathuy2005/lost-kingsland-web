@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="same-origin"><title>Thiên Mệnh Bảo Trận — Lost Kingsland</title><link rel="stylesheet" href="/assets/css/wheel.css"></head>
+<body><main>
+<header><a href="/portal.html">← Nhân vật</a><h1>Thiên Mệnh Bảo Trận</h1><p id="wallet">Đang kết nối…</p></header>
+<div id="login" hidden><p>Đăng nhập đúng Discord đã liên kết nhân vật trong bot.</p><a class="action" href="/auth/discord?returnTo=wheel">Đăng nhập Discord</a></div>
+<section id="controls" hidden><div class="toolbar"><button id="single">1 lượt · 100 Gem</button><button id="ten">10 thẻ · 900 Gem</button><button id="refresh">Khôi phục / tải lại</button></div><p class="rules">1 lượt: bấm trực tiếp thẻ ảnh, mở tối đa 4 ô an toàn. Có thể nhận quà và dừng sớm. Gặp bom mất toàn bộ thưởng của ván, kể cả đã mở 3 ô.<br>10 lượt: bấm một thẻ ảnh để lật lần lượt đủ 10 thẻ. Bảo hiểm chắc chắn có ít nhất 1 nhân vật.</p><label>Ván gần đây <select id="games"><option value="">Chọn ván</option></select></label></section>
+<p id="status" role="status" aria-live="polite"></p><button id="retry" hidden>Thử lại thao tác vừa rồi</button>
+<section id="board" class="board" aria-label="Các thẻ phần thưởng"></section><button id="cash" hidden>Nhận quà & dừng</button>
+<dialog id="congratulations"><h2>Chúc mừng kí chủ!</h2><p>Đã nhận nhân vật mới</p><div id="newCharacters"></div><button id="closePopup">Tiếp tục</button></dialog>
+</main><script src="/assets/js/wheel.js" defer></script><script src="/assets/js/shell.js"></script>
+</body></html>

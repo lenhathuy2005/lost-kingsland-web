@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Codex Collection — Lost Kingsland</title>
+  <link rel="stylesheet" href="/assets/css/lk.css" />
+</head>
+<body>
+<header class="topbar"><div class="wrap nav"><a class="brand" href="/"><span class="brand-mark"><span>LK</span></span><span>LOST KINGSLAND</span></a><nav class="nav-links"><a href="/">Home</a><a href="/#paths">Paths</a><a href="/#cultivation">Cultivation</a></nav><div class="nav-actions"><a class="btn primary" href="/portal.html">Player Portal</a></div></div></header>
+<main class="section" style="padding-top:50px">
+  <div class="wrap">
+    <div class="section-head"><div><div class="eyebrow">V27 LIVE CODEX</div><h2>Kho dữ liệu Lost Kingsland</h2></div><p>Đọc trực tiếp từ database V27. 480 trang bị canonical, 40 nhân vật phụ và 100 Angel/Demon Boss dùng cùng shared media với Admin/Discord Bot.</p></div>
+    <div class="codex-tabs"><button class="codex-tab active" data-mode="equipment">Equipment</button><button class="codex-tab" data-mode="character">Characters</button><button class="codex-tab" data-mode="boss">Faction Bosses</button></div>
+    <div class="panel">
+      <div class="toolbar">
+        <input id="q" class="input" placeholder="Tìm tên hoặc code..." />
+        <select id="rarity" class="select"><option value="">Tất cả phẩm chất</option></select>
+        <select id="slot" class="select"><option value="">Tất cả slot</option></select>
+        <select id="set" class="select"><option value="">Tất cả set</option></select>
+        <select id="faction" class="select" style="display:none"><option value="">ANGEL + DEMON</option><option>ANGEL</option><option>DEMON</option></select>
+      </div>
+      <div class="small" id="resultMeta" style="margin-bottom:14px"></div>
+      <div class="inventory-grid codex-grid" id="catalogGrid"></div>
+    </div>
+  </div>
+</main>
+<div class="modal" id="itemModal"><div class="modal-card"><div class="modal-head"><div><div class="eyebrow" id="modalRarity"></div><h2 id="modalName" style="margin:0"></h2></div><button class="close" id="modalClose">×</button></div><div id="modalBody" style="margin-top:20px"></div></div></div>
+<footer class="footer"><div class="wrap footer-row"><div>LOST KINGSLAND • V27 Live Codex</div><div><a href="/">Home</a> · <a href="/portal.html">Player Portal</a></div></div></footer>
+<script src="/assets/js/catalog.js"></script>
+<script src="/assets/js/shell.js"></script>
+</body>
+</html>
